@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyCommerceController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -36,4 +38,18 @@ Route::middleware([
     Route::get('/sub-category/edit/{id}',[SubCategoryController::class,'edit'])->name('subCategory.edit');
     Route::post('/sub-category/update/{id}',[SubCategoryController::class,'update'])->name('subCategory.update');
     Route::get('/sub-category/delete/{id}',[SubCategoryController::class,'delete'])->name('subCategory.delete');
+
+    Route::get('/brand/add',[BrandController::class,'index'])->name('brand.add');
+    Route::post('/brand/new',[BrandController::class,'create'])->name('brand.new');
+    Route::get('/brand/manage',[BrandController::class,'manage'])->name('brand.manage');
+    Route::get('/brand/edit/{id}',[BrandController::class,'edit'])->name('brand.edit');
+    Route::post('/brand/update/{id}',[BrandController::class,'update'])->name('brand.update');
+    Route::get('/brand/delete/{id}',[BrandController::class,'delete'])->name('brand.delete');
+
+    Route::get('/unit/add',[UnitController::class,'index'])->name('unit.add');
+    Route::post('/unit/new',[UnitController::class,'create'])->name('unit.new');
+    Route::get('/unit/manage',[UnitController::class,'manage'])->name('unit.manage');
+    Route::get('/unit/edit/{id}',[UnitController::class,'edit'])->name('unit.edit');
+    Route::post('/unit/update/{id}',[UnitController::class,'update'])->name('unit.update');
+    Route::get('/unit/delete/{id}',[UnitController::class,'delete'])->name('unit.delete');
 });
