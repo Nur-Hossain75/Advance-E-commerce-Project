@@ -56,8 +56,8 @@
                                 <i class="ti-layout-accordion-merged"></i><span class="hide-menu">Product Module</span>
                             </a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="table-basic.html">Add Product</a></li>
-                                <li><a href="table-layout.html">Manage Product</a></li>
+                                <li><a href="{{route('product.add')}}">Add Product</a></li>
+                                <li><a href="{{route('product.manage')}}">Manage Product</a></li>
                             </ul>
                         </li>
                         <li>

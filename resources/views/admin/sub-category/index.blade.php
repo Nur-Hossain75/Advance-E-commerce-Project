@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title','Add-Category')
+@section('title','Add-Sub-Category')
 
 @section('body')
     <div class="row mt-3">
