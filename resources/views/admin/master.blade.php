@@ -259,7 +259,7 @@
                             var option ='';
                             option+='<option value="" disabled selected>-- Select Sub Category --</option>';
                             $.each(response, function(key, value){
-                                option+='<option value="'+value.id+'" disabled selected>'+value.name+'</option>';
+                                option+='<option value="'+value.id+'">'+value.name+'</option>';
                             });
                             subCategoryId.append(option);
                         }

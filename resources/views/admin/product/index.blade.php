@@ -110,7 +110,7 @@
                         <div class="form-group row">
                             <label class="form-label col-sm-3 control-label" for="web">Other Image<span class="text-danger">*</span></label>
                             <div class="col-sm-9">
-                                <input type="file" name="other_image" multiple id="input-file-now" class="dropify" accept="image/*">
+                                <input type="file" name="other_image[]" multiple id="input-file-now" class="dropify" accept="image/*">
                             </div>
                         </div>
                         <div class="form-group row">

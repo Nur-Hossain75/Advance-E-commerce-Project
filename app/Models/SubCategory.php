@@ -12,11 +12,11 @@ class SubCategory extends Model
     private static $subCategory, $image, $imageName, $directory, $imageUrl;
 
     public static function getImageUrl($request){
-        self::$image = $request->file('image');
+        self::$image     = $request->file('image');
         self::$imageName = time().'.'.self::$image->getClientOriginalName();
         self::$directory = 'upload/sub-category-image/';
         self::$image->move(self::$directory, self::$imageName);
-        self::$imageUrl = self::$directory.self::$imageName;
+        self::$imageUrl  = self::$directory.self::$imageName;
         return self::$imageUrl;
     }
 

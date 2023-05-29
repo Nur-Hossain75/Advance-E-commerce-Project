@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\SubCategory;
 use App\Models\Unit;
 use Illuminate\Http\Request;
@@ -24,6 +25,12 @@ class ProductController extends Controller
     {
         
         return response()->json(SubCategory::where('category_id', $_GET['id'])->get());
+    }
+
+    public function create(Request $request)
+    {
+        Product::newProduct($request);
+        return back()->with('message', 'Product Update Successfully');
     }
 
     public function manage()
