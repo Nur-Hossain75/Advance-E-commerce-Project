@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\OtherImage;
 use App\Models\Product;
 use App\Models\SubCategory;
 use App\Models\Unit;
@@ -20,6 +21,7 @@ class ProductController extends Controller
             'units' => Unit::all()
         ]);
     }
+    private $product; 
 
     public function getSubCategoryByCategory()
     {
@@ -29,17 +31,35 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-        Product::newProduct($request);
+        $this->product =  Product::newProduct($request);
+        OtherImage::newOtherImage($request->other_image, $this->product->id);
         return back()->with('message', 'Product Update Successfully');
     }
 
     public function manage()
     {
-        return view('admin.product.manage');
+        return view('admin.product.manage',['products'=>Product::all()]);
     }
 
-    public function edit()
+    public function detail($id)
     {
-        return view('admin.product.edit');
+        return view('admin.product.detail',['product'=>Product::find($id)]);
+    }
+
+    public function edit($id)
+    {
+        return view('admin.product.edit',[
+            'product'=>Product::find($id),
+            'categories' => Category::all(),
+            'subcategories' => SubCategory::all(),
+            'brands' => Brand::all(),
+            'units' => Unit::all()
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        Product::updateProduct($request, $id);
+        return redirect('/product/manage',)->with('message', 'Product Update Successfully');
     }
 }
