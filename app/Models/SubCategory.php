@@ -31,10 +31,7 @@ class SubCategory extends Model
         self::$subCategory->save();
     }
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
+    
 
     public static function updateSubCategory($request, $id){
         self::$subCategory = SubCategory::find($id);
@@ -64,5 +61,10 @@ class SubCategory extends Model
             unlink(self::$subCategory->image);
         }
         self::$subCategory->delete();
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

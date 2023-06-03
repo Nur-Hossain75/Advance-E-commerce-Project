@@ -25,7 +25,6 @@ class ProductController extends Controller
 
     public function getSubCategoryByCategory()
     {
-        
         return response()->json(SubCategory::where('category_id', $_GET['id'])->get());
     }
 
@@ -60,6 +59,17 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         Product::updateProduct($request, $id);
-        return redirect('/product/manage',)->with('message', 'Product Update Successfully');
+        if($request->other_image){
+            OtherImage::updateOtherImage($request->other_image, $id);
+        }
+        return redirect('/product/manage')->with('message', 'Product Update Successfully');
+    }
+
+    public function delete($id)
+    {
+        Product::deleteProduct($id);
+        OtherImage::deleteOtherImage($id);
+
+        return redirect('/product/manage')->with('message', 'Product Delete Successfully');
     }
 }

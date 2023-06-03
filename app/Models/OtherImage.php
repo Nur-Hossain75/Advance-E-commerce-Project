@@ -9,7 +9,7 @@ class OtherImage extends Model
 {
     use HasFactory;
 
-    private static $otherImage, $imageName, $directory, $imageUrl;
+    private static $otherImage,$otherImages, $imageName, $directory, $imageUrl;
 
     public static function getImageUrl($image){
 
@@ -27,6 +27,29 @@ class OtherImage extends Model
             self::$otherImage->product_id = $id;
             self::$otherImage->image = self::getImageUrl($image);
             self::$otherImage->save();
+        }
+    }
+
+    public static function updateOtherImage($images, $id){
+        self::$otherImages = OtherImage::where('product_id', $id)->get();
+        foreach(self::$otherImages as $image){
+            
+            if (file_exists($image->image)) {
+                unlink($image->image);                
+            }
+            $image->delete();
+        }
+        self::newOtherImage($images, $id);
+    }
+
+    public static function deleteOtherImage($id){
+        self::$otherImages = OtherImage::where('product_id', $id)->get();
+        foreach(self::$otherImages as $image){
+            
+            if (file_exists($image->image)) {
+                unlink($image->image);                
+            }
+            $image->delete();
         }
     }
 }
