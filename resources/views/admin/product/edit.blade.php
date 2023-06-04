@@ -51,7 +51,7 @@
                                 <select class="form-control" name="unit_id" id="">
                                     <option value="" disabled selected>-- Select Unit --</option>
                                     @foreach ($units as $unit)
-                                        <option value="{{$unit->id}}" {{$brand->id == $product->unit_id ? 'selected' : ''}}>{{$unit->name}}</option>
+                                        <option value="{{$unit->id}}" {{$unit->id == $product->unit_id ? 'selected' : ''}}>{{$unit->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

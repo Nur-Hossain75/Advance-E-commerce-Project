@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    private static $category,$image, $imageName, $directory, $imageUrl;
+    public static $category,$image, $imageName, $directory, $imageUrl;
 
     public static function getImageUrl($request){
         self::$image     = $request->file('image');
@@ -58,5 +58,10 @@ class Category extends Model
             unlink(self::$category->image);
         }
         self::$category->delete();
+    }
+
+    public function subCategorise()
+    {
+        return $this->hasMany(SubCategory::class);
     }
 }

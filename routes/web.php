@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MyCommerceController::class,'index'])->name('home.page');
-Route::get('/product-category', [MyCommerceController::class,'category'])->name('category.page');
+Route::get('/product-category/{id}', [MyCommerceController::class,'category'])->name('product-category');
 Route::get('/product-detail', [MyCommerceController::class,'detail'])->name('category.detail');
 Route::get('/cart-page', [CartController::class,'cart'])->name('cart.page');
 Route::get('/checkout-page', [CheckoutController::class,'checkout'])->name('checkout.page');
