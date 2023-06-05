@@ -9,7 +9,13 @@
                 <div class="card-body">
                     <h4 class="card-title">Add Category Form</h4>
                 <hr/>
-                <h4 class="text-center text-success">{{session('message')}}</h4>
+                @if (session('message'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hey!</strong> {{session('message')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+                <h4 class="text-center text-success"></h4>
                     <form class="form-horizontal p-t-20" method="POST" action="{{route('category.new')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">

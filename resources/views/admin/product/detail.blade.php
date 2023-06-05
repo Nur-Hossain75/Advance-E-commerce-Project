@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title','Manage-Category')
+@section('title','Products-Details')
 
 @section('body')
     <div class="row mt-3">
@@ -9,7 +9,6 @@
                 <div class="card-body">
                     <h4 class="card-title">Category Manage Table</h4>
                     <hr/>
-                    <h4 class="text-center text-success">{{session('message')}}</h4>
                     <div class="table-responsive m-t-40">
                         <table class="table table-striped border">
                             

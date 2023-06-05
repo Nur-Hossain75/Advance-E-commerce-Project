@@ -9,7 +9,12 @@
                 <div class="card-body">
                     <h4 class="card-title">Category Manage Table</h4>
                     <hr/>
-                    <h4 class="text-center text-success">{{session('message')}}</h4>
+                    @if (session('message'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hey!</strong> {{session('message')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
                     <div class="table-responsive m-t-40">
                         <table id="myTable" class="table table-striped border">
                             <thead>

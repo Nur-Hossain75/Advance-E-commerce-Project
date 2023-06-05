@@ -207,15 +207,17 @@
                                             <div class="product-image">
                                                 <img src="{{ asset($product->image) }}"
                                                     alt="#">
-                                                <div class="button">
-                                                    <a href="product-details.html" class="btn"><i
-                                                            class="lni lni-cart"></i> Add to Cart</a>
-                                                </div>
+                                                <form action="{{route('add-to-cart',['id'=>$product->id])}}" method="POST">
+                                                    @csrf
+                                                    <div class="button">
+                                                        <button type="submit" class="btn"><i class="lni lni-cart"></i> Add to Cart</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                             <div class="product-info">
                                                 <span class="category">{{$product->subCategory->name}}</span>
                                                 <h4 class="title">
-                                                    <a href="{{ route('category.detail') }}">{{$product->name}}</a>
+                                                    <a href="{{route('category.detail',['id'=>$product->id])}}">{{$product->name}}</a>
                                                 </h4>
                                                 <ul class="review">
                                                     <li><i class="lni lni-star-filled"></i></li>

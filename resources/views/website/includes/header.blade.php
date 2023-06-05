@@ -264,7 +264,7 @@
                                             <li class="nav-item"><a href="{{route('product-category',['id'=>'0'])}}">Shop Grid</a>
                                             </li>
                                             <li class="nav-item"><a href="product-list.html">Shop List</a></li>
-                                            <li class="nav-item"><a href="{{ route('category.detail') }}">shop
+                                            <li class="nav-item"><a href="#">shop
                                                     Single</a></li>
                                             <li class="nav-item"><a href="{{ route('cart.page') }}">Cart</a></li>
                                             <li class="nav-item"><a href="{{ route('checkout.page') }}">Checkout</a>

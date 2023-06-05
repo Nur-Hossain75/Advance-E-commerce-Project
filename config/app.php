@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Overtrue\LaravelShoppingCart\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -212,6 +212,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'ShoppingCart'      => Overtrue\LaravelShoppingCart\Facade::class,
     ])->toArray(),
 
 ];

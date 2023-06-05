@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title','Add-Category')
+@section('title','Add-Brand')
 
 @section('body')
     <div class="row mt-3">
@@ -9,7 +9,12 @@
                 <div class="card-body">
                     <h4 class="card-title">Add Brand Form</h4>
                 <hr/>
-                <h4 class="text-center text-success">{{session('message')}}</h4>
+                @if (session('message'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hey!</strong> {{session('message')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
                     <form class="form-horizontal p-t-20" method="POST" action="{{route('brand.new')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">

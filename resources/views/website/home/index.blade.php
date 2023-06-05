@@ -232,7 +232,7 @@
                         <div class="product-info">
                             <span class="category">{{$product->subCategory->name}}</span>
                             <h4 class="title">
-                                <a href="product-grids.html">{{$product->name}}</a>
+                                <a href="{{route('category.detail',['id'=>$product->id])}}">{{$product->name}}</a>
                             </h4>
                             <ul class="review">
                                 <li><i class="lni lni-star-filled"></i></li>

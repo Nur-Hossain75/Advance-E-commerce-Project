@@ -9,7 +9,6 @@
                 <div class="card-body">
                     <h4 class="card-title">Edit Category Form</h4>
                 <hr/>
-                <h4 class="text-center text-success">{{session('message')}}</h4>
                     <form class="form-horizontal p-t-20" method="POST" action="{{route('category.update',['id'=>$category->id])}}" enctype="multipart/form-data">
                         @csrf
                         {{-- <input type="hidden" name="id" value="{{$category->id}}"> --}}

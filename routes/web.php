@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MyCommerceController::class,'index'])->name('home.page');
 Route::get('/product-category/{id}', [MyCommerceController::class,'category'])->name('product-category');
-Route::get('/product-detail', [MyCommerceController::class,'detail'])->name('category.detail');
-Route::get('/cart-page', [CartController::class,'cart'])->name('cart.page');
+Route::get('/product-detail/{id}', [MyCommerceController::class,'detail'])->name('category.detail');
+
+Route::post('/add-cart/{id}', [CartController::class,'index'])->name('add-to-cart');
+Route::get('/cart-page', [CartController::class,'show'])->name('cart.page');
+Route::get('/cart-remove/{id}', [CartController::class,'remove'])->name('remove-cart-product');
+Route::post('/cart-update/{id}', [CartController::class,'update'])->name('update-cart');
 Route::get('/checkout-page', [CheckoutController::class,'checkout'])->name('checkout.page');
 
 Route::middleware([
