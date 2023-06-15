@@ -28,20 +28,22 @@
             <div class="top-area">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12 col-12">
-                        <div class="product-images">
-                            <main id="gallery">
-                                <div class="main-img">
-                                    <img src="{{asset($products->image)}}" id="current" alt="#">
-                                </div>
-                                <div class="images">
-                                    @foreach ($products->otherImages as $otherImage)
-                                    <img src="{{ asset($otherImage->image) }}" class="img" alt="#">
-                                    @endforeach
-                                </div>
-                            </main>
+                        <div class="xzoom-container">
+                            <img class="xzoom" id="xzoom-default" src="{{asset($products->image)}}" xoriginal="{{asset($products->image)}}" />
+                            <div class="xzoom-thumbs">
+                            @foreach ($products->otherImages as $otherImage)
+                              <a href="{{ asset($otherImage->image) }}"><img class="xzoom-gallery" width="80" src="{{ asset($otherImage->image) }}"  xpreview="{{ asset($otherImage->image) }}" title="The description goes here"></a>
+                            @endforeach
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-12">
+                        @if (session('message'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Hey!</strong> {{session('message')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
                         <div class="product-info">
                             <h2 class="title">{{$products->name}}</h2>
                             <p class="category">
@@ -284,3 +286,14 @@
         </div>
     </div>
 @endsection
+
+{{-- <main id="gallery">
+    <div class="main-img">
+        <img src="{{asset($products->image)}}" id="current" alt="#">
+    </div>
+    <div class="images">
+        @foreach ($products->otherImages as $otherImage)
+        <img src="{{ asset($otherImage->image) }}" class="img" alt="#">
+        @endforeach
+    </div>
+</main> --}}

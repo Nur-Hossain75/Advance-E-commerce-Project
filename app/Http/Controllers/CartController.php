@@ -18,7 +18,7 @@ class cartController extends Controller
         }
         $this->product = Product::find($id);
         ShoppingCart::add($this->product->id, $this->product->name, $qty, $this->product->selling_price, ['image' => $this->product->image, 'sub_category'=>$this->product->subCategory->name,'brand'=>$this->product->brand->name ]);
-        return redirect('/cart-page');
+        return back()->with('message', 'Add Cart Product Successfully');
     }
     public function show()
     {
@@ -34,6 +34,7 @@ class cartController extends Controller
     public function remove($id)
     {
         ShoppingCart::remove($id);
-        return redirect('/cart-page')->with('message', 'Cart Product Remove Successfully');
-    }
+        return back()->with('message', 'Cart Product Remove Successfully');
+    }   
+
 }

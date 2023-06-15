@@ -21,7 +21,9 @@ Route::post('/add-cart/{id}', [CartController::class,'index'])->name('add-to-car
 Route::get('/cart-page', [CartController::class,'show'])->name('cart.page');
 Route::get('/cart-remove/{id}', [CartController::class,'remove'])->name('remove-cart-product');
 Route::post('/cart-update/{id}', [CartController::class,'update'])->name('update-cart');
+
 Route::get('/checkout-page', [CheckoutController::class,'checkout'])->name('checkout.page');
+Route::post('/new-cash-order', [CheckoutController::class,'newCashOrder'])->name('checkout.new-cash-order');
 
 Route::middleware([
     'auth:sanctum',

@@ -10,4 +10,8 @@ class CheckoutController extends Controller
     {
         return view('website.checkout.index');
     }
+    
+    public function newCashOrder(Request $request){
+        return $request;
+    }
 }

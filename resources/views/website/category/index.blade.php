@@ -264,9 +264,9 @@
                                                         <img src="{{ asset('/') }}website/assets/images/products/product-1.jpg"
                                                             alt="#">
                                                         <div class="button">
-                                                            <a href="product-details.html" class="btn"><i
-                                                                    class="lni lni-cart"></i> Add to
-                                                                Cart</a>
+                                                            <a href="product-details.html" class="btn">
+                                                                <i class="lni lni-cart"></i> Add toCart
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
