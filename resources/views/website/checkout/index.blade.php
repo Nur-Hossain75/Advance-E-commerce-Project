@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="index.html"><i class="lni lni-home"></i> Home</a></li>
+                        <li><a href="{{route('home.page')}}"><i class="lni lni-home"></i> Home</a></li>
                         <li><a href="index.html">Shop</a></li>
                         <li>checkout</li>
                     </ul>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="payable-price">
                                     <p class="value">Tax(15%):</p>
-                                    <p class="price">৳{{$tax=($total*15)/100}}</p>
+                                    <p class="price">৳{{$tax=round((($total*15)/100))}}</p>
                                 </div>
                                 <div class="payable-price">
                                     <p class="value">Shippng Amount:</p>
@@ -135,8 +135,13 @@
                                 <div class="total-payable">
                                     <div class="payable-price">
                                         <p class="value">Total Payable:</p>
-                                        <p class="price">৳{{$total+$tax+$shipping}}</p>
+                                        <p class="price">৳{{$orderTotal = $total+$tax+$shipping}}</p>
                                     </div>
+                                    <?php
+                                        Session::put('order_total',$orderTotal);
+                                        Session::put('tax_total',$tax);
+                                        Session::put('shipping_total',$shipping);
+                                    ?>
                                 </div>
                             </div>
                             <div class="price-table-btn button">

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MyCommerceController::class,'index'])->name('home.page');
 Route::get('/product-category/{id}', [MyCommerceController::class,'category'])->name('product-category');
+Route::get('/product-sub-category/{id}', [MyCommerceController::class,'subCategory'])->name('product-sub-category');
 Route::get('/product-detail/{id}', [MyCommerceController::class,'detail'])->name('category.detail');
 
 Route::post('/add-cart/{id}', [CartController::class,'index'])->name('add-to-cart');
@@ -24,6 +25,7 @@ Route::post('/cart-update/{id}', [CartController::class,'update'])->name('update
 
 Route::get('/checkout-page', [CheckoutController::class,'checkout'])->name('checkout.page');
 Route::post('/new-cash-order', [CheckoutController::class,'newCashOrder'])->name('checkout.new-cash-order');
+Route::get('/complete-order', [CheckoutController::class,'completeOrder'])->name('complete-order');
 
 Route::middleware([
     'auth:sanctum',

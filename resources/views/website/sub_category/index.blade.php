@@ -149,7 +149,8 @@
 
                                         <div class="single-product">
                                             <div class="product-image">
-                                                <img src="{{ asset($product->image) }}"alt="#">
+                                                <img src="{{ asset($product->image) }}"
+                                                    alt="#">
                                                 <form action="{{route('add-to-cart',['id'=>$product->id])}}" method="POST">
                                                     @csrf
                                                     <div class="button">
