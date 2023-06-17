@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use Illuminate\Contracts\Session\Session as SessionSession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session as FacadesSession;
 use Session;
 use ShoppingCart;
 
@@ -24,8 +26,10 @@ class CheckoutController extends Controller
         $this->customer->email    = $request->email;
         $this->customer->mobile   = $request->mobile;
         $this->customer->password = bcrypt($request->mobile);
-
         $this->customer->save();
+
+        Session::put('customer_id', $this->customer->id);
+        Session::put('customer_name', $this->customer->name);
 
         $this->order = new Order();
 
@@ -50,6 +54,8 @@ class CheckoutController extends Controller
             $this->orderDetail->product_qty   = $item->qty;
 
             $this->orderDetail->save();
+
+            ShoppingCart::remove($item->__raw_id);
         }
 
         return redirect('/complete-order')->with('message','Congratulation... Your order info post Successfully. Please wait. We will contact with you very soon.');
