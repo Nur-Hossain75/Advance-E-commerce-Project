@@ -31,7 +31,7 @@
               <h3>No Account? Register</h3>
               <p>Registration takes less than a minute but gives you full control over your orders.</p>
             </div>
-            <form class="row" action="" method="post">
+            <form class="row" action="{{route('customer.register')}}" method="POST">
                 @csrf
               <div class="col-sm-12">
                 <div class="form-group">
@@ -60,9 +60,10 @@
               <div class="button">
                 <button class="btn" type="submit">Register</button>
               </div>
-              <p class="outer-link">Already have an account? <a href="{{route('customer.login')}}">Login Now</a>
-              </p>
             </form>
+              <p class="outer-link">Already have an account? <a href="{{route('customer.signin')}}">Login Now</a>
+              </p>
+            
           </div>
         </div>
       </div>

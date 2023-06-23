@@ -83,10 +83,10 @@
                             @else
                             <ul class="user-login">
                                 <li>
-                                    <a href="{{ route('customer.login') }}">Sign In</a>
+                                    <a href="{{ route('customer.signin') }}">Sign In</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('customer.register') }}">Register</a>
+                                    <a href="{{ route('customer.create') }}">Register</a>
                                 </li>
                             </ul>
                             @endif

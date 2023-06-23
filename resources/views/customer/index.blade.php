@@ -70,7 +70,7 @@
                         <button class="btn" type="submit">Login</button>
                     </div>
                 </form>
-                  <p class="outer-link">Don't have an account? <a href="{{route('customer.register')}}">Register here </a>
+                  <p class="outer-link">Don't have an account? <a href="{{route('customer.create')}}">Register here </a>
                   </p>
                 </div>
               {{-- </form> --}}
