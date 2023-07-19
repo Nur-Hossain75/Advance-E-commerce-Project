@@ -41,6 +41,7 @@ class CheckoutController extends Controller
         }
         else{
             $this->orderCustomerValidate($request);
+
             $this->customer = Customer::newCustomer($request);
             Session::put('customer_id', $this->customer->id);
             Session::put('customer_name', $this->customer->name);
@@ -49,7 +50,7 @@ class CheckoutController extends Controller
         $this->order = Order::newOrder($request, $this->customer->id);
 
         
-        orderDetail::newOrderDetail( $this->order->id);
+        OrderDetail::newOrderDetail( $this->order->id);
         return redirect('/complete-order')->with('message','Congratulation... Your order info post Successfully. Please wait. We will contact with you very soon.');
     }
 

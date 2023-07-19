@@ -115,8 +115,93 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="tab-pane fade show" id="online">
+                            <div class="tab-pane fade show px-3" id="online">
+                                <form action="{{ url('/pay') }}" method="POST" class="needs-validation">
+                                    <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label for="firstName">Full name</label>
+                                            <input type="text" name="name" class="form-control" id="customer_name" placeholder="Full Name" required>
+                                            <div class="invalid-feedback">
+                                                Valid customer name is required.
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="mb-3">
+                                        <label for="mobile">Mobile</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">+88</span>
+                                            </div>
+                                            <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Phone Number" required>
+                                            <div class="invalid-feedback" style="width: 100%;">
+                                                Your Mobile number is required.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email Address" required>
+                                        <div class="invalid-feedback">
+                                            Please enter a valid email address for shipping updates.
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="address">Address</label>
+                                        <textarea class="form-control" name="delivery_address" id="address" placeholder="Delivery Address" required></textarea>
+                                        <div class="invalid-feedback">
+                                            Please enter your shipping address.
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 mb-3">
+                                            <label for="country">Country</label>
+                                            <select class="custom-select d-block form-control w-100" id="country" required>
+                                                <option value="">Choose...</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Please select a valid country.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="state">State</label>
+                                            <select class="custom-select d-block form-control w-100" id="state" required>
+                                                <option value="">Choose...</option>
+                                                <option value="Dhaka">Dhaka</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid state.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="zip">Zip</label>
+                                            <input type="text" class="form-control" id="zip" placeholder="" required>
+                                            <div class="invalid-feedback">
+                                                Zip code required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-checkbox checkbox-style-3">
+                                            <input type="radio" id="" name="payment_type" checked value="2">
+                                            <label for=""><span></span></label>
+                                            <p>Cash On Delivery</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-checkbox checkbox-style-3">
+                                            <input type="checkbox" id="checkbox-33" checked>
+                                            <label for="checkbox-33"><span></span></label>
+                                            <p>I accept all terms & condition.</p>
+                                        </div>
+                                    </div>
+                                    <hr class="mb-4">
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                                </form>
                             </div>
                         </div>
                     </div>
