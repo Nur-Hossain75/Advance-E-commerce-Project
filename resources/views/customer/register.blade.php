@@ -36,25 +36,29 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="reg-fn">Full Name</label>
-                  <input class="form-control" type="text" id="reg-fn" name="name" required>
+                  <input class="form-control" type="text" id="reg-fn" name="name" value="{{old('name')}}" required>
+                  <span class="text-danger">{{$errors->has('name') ? $errors->first('name') : ''}}</span>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="reg-email">E-mail Address</label>
-                  <input class="form-control" type="email" id="reg-email" name="email" required>
+                  <input class="form-control" type="email" id="reg-email" name="email" value="{{old('email')}}" required>
+                  <span class="text-danger">{{$errors->has('email') ? $errors->first('email') : ''}}</span>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="reg-phone">Phone Number</label>
-                  <input class="form-control" type="number" id="reg-phone" name="mobile" required>
+                  <input class="form-control" type="number" id="reg-phone" name="mobile" value="{{old('mobile')}}" required>
+                  <span class="text-danger">{{$errors->has('mobile') ? $errors->first('mobile') : ''}}</span>
                 </div>
               </div>
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="reg-pass">Password</label>
                   <input class="form-control" type="password" id="reg-pass" name="password" required>
+                  <span class="text-danger">{{$errors->has('password') ? $errors->first('password') : ''}}</span>
                 </div>
               </div>
               <div class="button">

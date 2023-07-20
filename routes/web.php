@@ -34,11 +34,16 @@ Route::get('/customer-signin', [CustomerAuthController::class,'index'])->name('c
 Route::post('/customer-login', [CustomerAuthController::class,'login'])->name('customer.login');
 Route::get('/customer-create', [CustomerAuthController::class,'create'])->name('customer.create');
 Route::post('/customer-register', [CustomerAuthController::class,'register'])->name('customer.register');
-Route::get('/customer-logout', [CustomerAuthController::class,'logout'])->name('customer.logout');
-Route::get('/customer-dashboard', [CustomerAuthController::class,'dashboard'])->name('customer.dashboard');
-Route::get('/customer-profile', [CustomerAuthController::class,'profile'])->name('customer.profile');
 
-Route::get('/customer-order', [CustomerOrderController::class,'allOrder'])->name('customer.order');
+
+Route::middleware(['customer'])->group(function () {
+    Route::get('/customer-logout', [CustomerAuthController::class,'logout'])->name('customer.logout');
+    Route::get('/customer-dashboard', [CustomerAuthController::class,'dashboard'])->name('customer.dashboard');
+    Route::get('/customer-profile', [CustomerAuthController::class,'profile'])->name('customer.profile');
+    Route::get('/customer-order', [CustomerOrderController::class,'allOrder'])->name('customer.order');
+});
+
+
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
@@ -54,11 +59,8 @@ Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 //SSLCOMMERZ END
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
     Route::get('/category/add',[CategoryController::class,'index'])->name('category.add');

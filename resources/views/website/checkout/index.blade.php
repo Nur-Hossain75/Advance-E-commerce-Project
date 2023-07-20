@@ -120,8 +120,21 @@
                                     <input type="hidden" value="{{ csrf_token() }}" name="_token" />
                                     <div class="row">
                                         <div class="col-md-12 mb-3">
+                                            {{-- <div class="col-md-12 form-input form">
+                                                @if (isset($customer->id))
+                                                    <input type="text" required name="name" value="{{$customer->name}}" readonly placeholder="Full Name"/>
+                                                @else
+                                                    <input type="text" required name="name" value="{{old('name')}}" placeholder="Full Name"/>
+                                                    <span class="text-danger">{{$errors->has('name') ? $errors->first('name') : ''}}</span>
+                                                @endif
+                                            </div> --}}
                                             <label for="firstName">Full name</label>
-                                            <input type="text" name="name" class="form-control" id="customer_name" placeholder="Full Name" required>
+                                            @if (isset($customer->id))
+                                            <input type="text" name="name" value="{{$customer->name}}" readonly  class="form-control" id="customer_name" placeholder="Full Name" required>
+                                            @else
+                                            <input type="text" name="name" class="form-control" id="customer_name"  value="{{old('name')}}" placeholder="Full Name" required>
+                                            <span class="text-danger">{{$errors->has('name') ? $errors->first('name') : ''}}</span>
+                                            @endif
                                             <div class="invalid-feedback">
                                                 Valid customer name is required.
                                             </div>
@@ -134,7 +147,12 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">+88</span>
                                             </div>
-                                            <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Phone Number" required>
+                                            @if (isset($customer->id))
+                                            <input type="number" name="mobile" value="{{$customer->mobile}}" readonly  class="form-control" id="mobile" placeholder="Phone Number" required>
+                                            @else
+                                            <input type="number" name="mobile" class="form-control" id="mobile"  value="{{old('mobile')}}" placeholder="Phone Number" required>
+                                            <span class="text-danger">{{$errors->has('mobile') ? $errors->first('mobile') : ''}}</span>
+                                            @endif
                                             <div class="invalid-feedback" style="width: 100%;">
                                                 Your Mobile number is required.
                                             </div>
@@ -143,7 +161,12 @@
 
                                     <div class="mb-3">
                                         <label for="email">Email</label>
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email Address" required>
+                                        @if (isset($customer->id))
+                                            <input type="email" name="email" value="{{$customer->email}}" readonly  class="form-control" id="email" placeholder="Email Address" required>
+                                            @else
+                                            <input type="email" name="email" class="form-control" id="email"  value="{{old('email')}}" placeholder="Email Address" required>
+                                            <span class="text-danger">{{$errors->has('email') ? $errors->first('email') : ''}}</span>
+                                            @endif
                                         <div class="invalid-feedback">
                                             Please enter a valid email address for shipping updates.
                                         </div>
