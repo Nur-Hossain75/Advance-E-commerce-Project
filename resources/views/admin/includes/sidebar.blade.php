@@ -65,7 +65,7 @@
                                 <i class="ti-settings"></i><span class="hide-menu">Order Module</span>
                             </a>
                             <ul aria-expanded="false" class="collapse"> 
-                                <li><a href="widget-apps.html">Manage Order</a></li>
+                                <li><a href="{{route('admin.all-order')}}"> Manage Order</a></li>
                             </ul>
                         </li>
                         

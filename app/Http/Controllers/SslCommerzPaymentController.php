@@ -214,7 +214,7 @@ class SslCommerzPaymentController extends Controller
                 echo "<br >Transaction is successfully  Completed";
                 return redirect('/complete-order')->with('message','Congratulation... Your order info post Successfully. Please wait. We will contact with you very soon.');
             }
-        } else if ($order_details->order_status == 'processing' || $order_details->order_status == 'complete') {
+        } else if ($order_details->order_status == 'Processing' || $order_details->order_status == 'complete') {
             // dd("else");
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
@@ -286,7 +286,7 @@ class SslCommerzPaymentController extends Controller
                 ->where('transaction_id', $tran_id)
                 ->select('transaction_id', 'order_status', 'currency', 'order_total')->first();
 
-            if ($order_details->order_status == 'Pending') {
+            if ($order_details->order_status == 'pending') {
                 $sslc = new SslCommerzNotification();
                 $validation = $sslc->orderValidate($request->all(), $tran_id, $order_details->order_total, $order_details->currency);
                 if ($validation == TRUE) {
